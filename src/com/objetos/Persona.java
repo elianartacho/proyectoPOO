@@ -7,17 +7,88 @@ public class Persona {
    private String apellidos;
    private int edad;
 
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return this.apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public int getEdad() {
+        return this.edad;
+    }
+
+    public void setEdad(int edad)throws Exception {
+
+        //debemos controlar la edad y realizar la accion que mas nos guste
+        //error silencioso el programador no sabe 
+        //que ha echo mal,simplemente lo soluciono aqui
+        if(edad < 0 ){
+          throw new Exception("la edad no puede ser negativa");
+        }else{
+             this.edad = edad;
+        }
+       
+       
+    }
+
+     public enum tipoGenero {
+            FEMENINO, MASCULINO , OTROS
+        }
+        private tipoGenero genero;
+
+    public tipoGenero getGenero() {
+        return this.genero;
+    }
+
+    public void setGenero(tipoGenero genero) {
+        this.genero = genero;
+    }
+    //metodo para devolver nombre y apellido
+    public String getNombreCompleto(){
+        return this.nombre+ " " + this.apellidos;
+    }
+
+    //metodo para devolver nombre y apellidos en mayusculas
+    public String getNombreClompletoMayusculas(){
+        return this.nombre.toUpperCase()
+        + " " + this.apellidos.toUpperCase();
+    }
+
+    //metodo para devolver apellidos y nombre
+    public String getNombreCompletoReves(){
+        return this.apellidos + " " + this.nombre;
+    }
+
+    //metodo para devolver nombre y apellidos recibiendo
+    //el separador que deseemos
+    public String getNombreCompletoSeparador(String separador){
+        return this.nombre + separador + this.apellidos;
+        
+    }
+
+    }
+
     //por cada propiedad tendremos dos metodos get y set 
 
     //el get para recuperar y son public
-    public String getNombre() {
-        return nombre;
-    }
+    // public String getNombre() {
+    //     return nombre;
+    // }
 
-        //set para establecer un valor
-        public void setNombre(String valor) {
-            nombre = valor;
+    //     //set para establecer un valor
+    //     public void setNombre(String valor) {
+    //         nombre = valor;
 
-        }
+     //   }
 
-}
+
