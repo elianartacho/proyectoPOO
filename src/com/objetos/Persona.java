@@ -6,6 +6,22 @@ public class Persona {
    private String nombre;
    private String apellidos;
    private int edad;
+   private int dni;
+   
+
+    public int getDni(){
+        return this.dni;
+    }
+    public void setDni(int dni){
+        this.dni = dni;
+    }
+
+    public char getLetra(){
+         int resultado = (dni - (dni /23) * 23);
+         String letrasDni = "TRWAGMYFPDXBNJZSQVHLCKET ";
+         char letra = letrasDni.charAt(resultado); 
+        return letra;
+    }
 
     public String getNombre() {
         return this.nombre;
@@ -73,12 +89,18 @@ public class Persona {
     //el separador que deseemos
     public String getNombreCompletoSeparador(String separador){
         return this.nombre + separador + this.apellidos;
-        
-    }
 
     }
+
+
+
+    }
+    //solo puedo tener un nombre de metodo asi que solo varian los parametros en funcion de lo que quiera
+    //entre los parentesis pongo el parametro a poner y dentro del metodo lo que este haga
 
     //por cada propiedad tendremos dos metodos get y set 
+    //Get y Set solo prodiedades
+    //metodos solo get 
 
     //el get para recuperar y son public
     // public String getNombre() {

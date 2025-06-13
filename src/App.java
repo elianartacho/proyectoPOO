@@ -17,6 +17,12 @@ public class App {
         personaje.setEdad(29);
         System.out.println(personaje.getEdad());
 
+        personaje.setDni(2277299);
+        System.out.println(personaje.getDni());
+
+        personaje.getLetra();
+        System.out.println(personaje.getLetra());
+
         personaje.setGenero(Persona.tipoGenero.MASCULINO );
         System.out.println(personaje.getGenero());
 
