@@ -1,27 +1,76 @@
 package com.objetos;
 
 public class Persona {
+
+    
+    //el constructor lleva el nombre de la clase
+    public Persona(){
+        //CUANDO PONGA new Persona() entra en este codigo
+        super();
+        System.out.println("Soy constructor vacio de  persona");
+        this.setGenero(tipoGenero.FEMENINO);
+    }
+
+    // OTRO CONSTRUCTOR que recibira nombre y  apellidos
+    public Persona(String nombre ,String apellidos){
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+      
+        System.out.println("Contructor con nombre y apellidos Persona");
+         
+    }
+
+    //1) Constructores de clase
+    //2) Campos de propiedad
+    //3) Getter y Setter
+    //4)Metodos
+
+
    //debemos declarar las variables privadas de
    //cada propiedad
    private String nombre;
    private String apellidos;
    private int edad;
-   private int dni;
-   
+ //  private int dni;
+   private String dniCompleto;
 
-    public int getDni(){
-        return this.dni;
-    }
-    public void setDni(int dni){
-        this.dni = dni;
+   public String getDDniCompleto(){
+    return this.dniCompleto;
+   }
+   public void setDniCompleto(String dniCompleto)throws Exception{
+
+     char letraDni = dniCompleto.charAt(dniCompleto.length() - 1);
+        String temp = dniCompleto.substring(0, dniCompleto.length() -1);
+         int numeroDni = Integer.parseInt(temp);
+         int resultado = (numeroDni - (numeroDni /23) * 23);
+          String letrasDni = "TRWAGMYFPDXBNJZSQVHLCKET ";
+        char letra= letrasDni.charAt(resultado);
+
+    if (letraDni == letra) {
+          this.dniCompleto = dniCompleto;
+
+    }else{
+        throw new Exception("La letra del Dni es incorrecta");
     }
 
-    public char getLetra(){
-         int resultado = (dni - (dni /23) * 23);
-         String letrasDni = "TRWAGMYFPDXBNJZSQVHLCKET ";
-         char letra = letrasDni.charAt(resultado); 
-        return letra;
-    }
+      
+   }
+
+
+   //aqui declaramos la variable dni  y el metodo letra para recibir el numero y decirle la letra
+    // public int getDni(){
+    //     return this.dni;
+    // }
+    // public void setDni(int dni){
+    //     this.dni = dni;
+    // }
+
+    // public char getLetra(int dni ){
+    //      int resultado = (dni - (dni /23) * 23);
+    //      String letrasDni = "TRWAGMYFPDXBNJZSQVHLCKET ";
+    //      char letra = letrasDni.charAt(resultado); 
+    //     return letra;
+    // }
 
     public String getNombre() {
         return this.nombre;
