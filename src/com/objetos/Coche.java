@@ -2,6 +2,8 @@ package com.objetos;
 
 public class Coche {
 
+    
+
     private String marca;
     private String modelo;
     private int velocidad;
@@ -27,7 +29,7 @@ public class Coche {
         return this.velocidad;
     }
 
-    public void setVelocidad(int velocidad) {
+    protected void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
     }
 
@@ -35,7 +37,8 @@ public class Coche {
         return this.velocidadMaxima;
     }
 
-    public void setVelocidadMaxima(int velocidadMaxima) {
+    //protected para que otro coche pueda cambiar la velocidad si hereda de la clase coche
+    protected void setVelocidadMaxima(int velocidadMaxima) {
         this.velocidadMaxima = velocidadMaxima;
     }
 
@@ -45,30 +48,32 @@ public class Coche {
         }
     
         public int Frenar(){
-            //se puede realizar asi pero es mejor mas simple directamente con el this
-            // int fr = getVelocidad();
-            // return fr - 10;
+            this.velocidad -= 10;
+           
             
-            return this.velocidad - 10;
+            return this.velocidad ;
 
         }
         public void Frenar(boolean frenadoTotal){
-            if(frenadoTotal == true){
-                 System.out.println("has pararado el coche");
-
-            }else{
-                Frenar();
-            } 
+            this.velocidad = 0;
+            System.out.println("has pararado el coche");
             
         }
+
         public int Acelerar(){
-            if ((this.velocidad + Acelerar()) > velocidadMaxima) {
+            this.velocidad += 20;
+            if (this.velocidad > velocidadMaxima) {
                 System.out.println("Has superado la velocidad maxima frena");
             }else
             if (velocidad == 0) {
                 System.out.println("Con el coche parado no puedes acelerar");
-            }return this.velocidad + 20;
+            }
+            return this.velocidad;
             
-
         }
+        @Override
+        public String toString(){
+            return this.marca + " " + this.modelo + " Velocidad " + this.velocidad;
+        }
+
 }
