@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
-import java.util.random.RandomGenerator;
+//import java.util.Scanner;
+
 
 import com.objetos.Mes;
 
 public class Clima {
     public static void main(String[] args) {
-        Scanner teclado = new Scanner(System.in);
+      //  Scanner teclado = new Scanner(System.in);
 
-        System.out.println("introduce datos");
+      //  System.out.println("introduce datos");
        
 
         ArrayList<Mes> meses = new ArrayList<Mes>();
@@ -17,9 +17,16 @@ public class Clima {
 
        String[] nombresmeses = new String[] {"ENERO", "FEBRERO","MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO" , "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"};
 
-       for (int i = 0; i < 12; i++) {
+       for (int i = 1; i < 12; i++) {
             Mes mes = new Mes();
-           
+            String nombre = nombresmeses [i -1];
+            int min = random.nextInt(10,20);
+            int max = random.nextInt(15,40);
+            mes.setTemperaturaMax(max);
+            mes.setTemperaturaMin(min);
+            mes.setNombre(nombre);
+            meses.add(mes);
+
        }
 
 
